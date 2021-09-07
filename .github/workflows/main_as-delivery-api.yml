@@ -56,5 +56,5 @@
           with:
             app-name: 'as-delivery-api'
             slot-name: 'production'
-            publish-profile: ${{ secrets.AzureAppService_PublishProfile_334079dd6cf04a3bb7d9d81cf9208db3 }}
+            publish-profile: ${{ secrets.AzureAppService_PublishProfile_a30fc2bb8b99445eafea1a4e2c28cd0a }}
             package: .
