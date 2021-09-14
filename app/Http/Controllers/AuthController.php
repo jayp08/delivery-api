@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        //$this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
     public function register(Request $request) {
@@ -26,15 +26,15 @@ class AuthController extends Controller
             'username' => 'required|unique:users,username,l,id',
             'password' => 'required|confirmed',
         ]);
- 
+        
         $username = $request->input('username');
         $password = Hash::make($request->input('password'));
 
         User::create(['username' => $username, 'password' => $password]);
-     
-        return response()->json(['status' => 'success', 'message' => 'User has been created']);
+        
+        return $this->login($request);
     }
-
+    
     /**
      * Get a JWT token via given credentials.
      *
